@@ -1,10 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'chemzqm/vim-jsx-improve'
 Plug 'jiangmiao/auto-pairs'
-Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -13,11 +9,23 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
-Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
-
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
+
+let g:vim_jsx_pretty_highlight_close_tag = 1
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 " Give more space for displaying messages.
 set cmdheight=2
 
